@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ID_Game_Launcher"
         mc:Ignorable="d"
-        Title="ID Game Launcher" Height="720" Width="1080" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Background="#192354" ResizeMode="NoResize" Icon="indie david logo.png">
+        Title="ID Game Launcher" Height="720" Width="1080" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Background="#192354" ResizeMode="NoResize" Icon="Images/indie david logo.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
@@ -15,7 +15,7 @@
         <Label Content="Ver 0.0.0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="55"/>
         <TabControl Name="MenuTab" BorderBrush="Black" HorizontalAlignment="Center" Height="680" Margin="-2,6,6,6" VerticalAlignment="Center" Width="1070" Grid.ColumnSpan="2" Background="#151D47">
 
-            <TabItem Header="Home" Height="45" Width="180" FontSize="30" FontWeight="Bold">
+            <TabItem Header="Home" Height="45" Width="180" FontSize="30">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid Background="#151D47">
                         <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="Indie David's Game Launcher" Margin="0,0,0,600"/>
@@ -25,16 +25,22 @@
                 </ScrollViewer>
 
             </TabItem>
-            <TabItem Header="Library" Height="45" Width="180" FontSize="30" FontWeight="Bold">
+            <TabItem Header="Library" Height="45" Width="180" FontSize="30">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid Name="GameTabGrid" Background="#151D47" Height="1080">
-                        <Canvas Name="AgentBaby" VerticalAlignment="Top" Width="1050" Height="300"  Margin="0,10,0,0">
-                            <Image Name="GameImage" Height="200" Width="200" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="42" Source="agent baby logo.png"/>
-                            <Label Name ="GameTitle" Content="Agent Baby" Canvas.Left="215" Canvas.Top="42"></Label>
-                            <TextBlock Name ="GameDesc"  Canvas.Left="230" TextWrapping="Wrap" Canvas.Top="92" Height="110" Width="797" FontWeight="Regular" FontSize="18"/>
-                            <Button Name="PlayAgentBaby" Content="Play" Canvas.Left="822" Canvas.Top="242" Width="188" Click="PlayAgentBaby_Click"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                        </Canvas>
                     </Grid>
                 </ScrollViewer>
 

@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace ID_Game_Launcher
 {
@@ -24,24 +25,35 @@ namespace ID_Game_Launcher
     /// </summary>
     public partial class MainWindow : Window
     {
-        string AgentBabyDesc = "Play as Agent Baby! a secret agent who possesses a powerful weapon that can rewind people to younger age! Infiltrate the evil lair and make your way to the boss in this fun little 2d platformer!";
-
+        
         public MainWindow()
         {
             InitializeComponent();
-            GameDesc.Text = AgentBabyDesc;
+
+            GameSlot slot1 = new GameSlot();
+            slot1.GameName.Content = "Agent Baby";
+            slot1.Name = "AgentBaby";
+            GameSlot slot2 = new GameSlot();
+            slot2.GameName.Content = "Snow Yard";
+            slot2.Name = "SnowYard";
+            GameTabGrid.Children.Add(slot1);
+            GameTabGrid.Children.Add(slot2);
+            Grid.SetColumn(slot2, 1);
+           
+            slot1.GameImage.Source = new BitmapImage(new Uri("Images/agent baby logo.png",UriKind.Relative));
+            slot2.GameImage.Source = new BitmapImage(new Uri("Images/snow-yard Icon.png", UriKind.Relative));
         }
         
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("Directing to game library!");
             MenuTab.SelectedIndex = 1;
-            
         }
 
         private void PlayAgentBaby_Click(object sender, RoutedEventArgs e)
         {
             //Launcher.PlayGame(gameExe);
         }
+       
     }
 }
