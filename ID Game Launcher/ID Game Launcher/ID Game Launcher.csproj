@@ -115,5 +115,14 @@
   <ItemGroup>
     <Resource Include="Images\snow-yard Icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Dashboard Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gamepad icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Last Line icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,15 +7,14 @@
         mc:Ignorable="d"
         Title="ID Game Launcher" Height="720" Width="1080" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Background="#192354" ResizeMode="NoResize" Icon="Images/indie david logo.png">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <Label Content="Ver 0.0.0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="60" Opacity="0.5"/>
-        <TabControl Name="MenuTab" BorderBrush="Black" HorizontalAlignment="Center" Height="680" Margin="-2,6,6,6" VerticalAlignment="Center" Width="1070" Grid.ColumnSpan="2" Background="#151D47">
+        <Label Content="Ver 0.0.1" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="60" Opacity="0.5"/>
+        <Label Name="MenuTitle" Content="ID GAME LAUNCHER" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,7,0,0" FontSize="32"/>
+        <TabControl Name="MenuTab" BorderBrush="Black" HorizontalAlignment="Center" Height="680" Margin="-2,6,6,6" VerticalAlignment="Center" Width="1070" Grid.ColumnSpan="2" Background="#151D47" SelectionChanged="MenuTab_SelectionChanged">
 
-            <TabItem Header="Home" Height="45" Width="100" FontSize="20">
+            <TabItem Name="Dashboard" Height="50" Width="50" FontSize="20">
+                <TabItem.Header>
+                    <Image Width="30" Height="30" Source="Images/Dashboard Icon.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,0,0,0"/>
+                </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid Height="1300" Background="#151D47">
                         <Grid.RowDefinitions>
@@ -49,14 +48,15 @@
                 </ScrollViewer>
 
             </TabItem>
-            <TabItem Header="Library" Height="45" Width="100" FontSize="20">
+            <TabItem Name="GameLibrary" Height="50" Width="50" FontSize="20">
+                <TabItem.Header>
+                    <Image Source="Images/Gamepad icon.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="40" Margin="0,5,0,0"/>
+                </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <Grid Name="GameTabGrid" Background="#151D47" Height="1080">
+                    <Grid Name="GameTabGrid" Background="#151D47" Height="622">
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition Height="270"/>
+                            <RowDefinition Height="270"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -64,13 +64,10 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="3" FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="1" Margin="181,0,186,0"/>
+                        <Label Grid.Row="1" FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="1" Margin="183.4,0,170.6,-83.2" Width="170"/>
                     </Grid>
                 </ScrollViewer>
-
-
             </TabItem>
         </TabControl>
-
     </Grid>
 </Window>

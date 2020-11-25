@@ -29,6 +29,10 @@ namespace ID_Game_Launcher
                     gameFolder = "Snow-Yard";
                     gameExeName = "Snow-Yard.exe";
                     break;
+                case "LastLine":
+                    gameFolder = "Last Line";
+                    gameExeName = "Last Line.exe";
+                    break;
             }
 
             rootDirectory = Directory.GetCurrentDirectory();
