@@ -34,6 +34,33 @@
 
     <Style x:Name="LabelStyle" TargetType="Label">
         <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontFamily" Value="Didot"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style x:Name="ButtonStyle" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="Didot"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="Transparent" CornerRadius="10" BorderBrush="#FF871BB9" BorderThickness="2">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="0.4"/>
+                <Setter Property="Foreground" Value="LightSkyBlue"/>
+            </Trigger>
+        </Style.Triggers>
+        
     </Style>
     
 </ResourceDictionary>

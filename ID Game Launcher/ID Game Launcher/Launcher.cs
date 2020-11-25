@@ -41,8 +41,6 @@ namespace ID_Game_Launcher
                 startInfo.WorkingDirectory = Path.Combine(gameDirectory, "Agent Baby");
                 Process.Start(startInfo);
             }
-            //Process.Start(fileName);
         }
-
     }
 }

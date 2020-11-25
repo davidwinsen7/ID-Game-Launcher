@@ -39,8 +39,8 @@ namespace ID_Game_Launcher
             GameTabGrid.Children.Add(slot1);
             GameTabGrid.Children.Add(slot2);
             Grid.SetColumn(slot2, 1);
-           
-            slot1.GameImage.Source = new BitmapImage(new Uri("Images/agent baby logo.png",UriKind.Relative));
+
+            slot1.GameImage.Source = new BitmapImage(new Uri("Images/agent baby logo.png", UriKind.Relative));
             slot2.GameImage.Source = new BitmapImage(new Uri("Images/snow-yard Icon.png", UriKind.Relative));
         }
         

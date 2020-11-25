@@ -12,20 +12,44 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Ver 0.0.0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="55"/>
+        <Label Content="Ver 0.0.0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="60" Opacity="0.5"/>
         <TabControl Name="MenuTab" BorderBrush="Black" HorizontalAlignment="Center" Height="680" Margin="-2,6,6,6" VerticalAlignment="Center" Width="1070" Grid.ColumnSpan="2" Background="#151D47">
 
-            <TabItem Header="Home" Height="45" Width="180" FontSize="30">
+            <TabItem Header="Home" Height="45" Width="100" FontSize="20">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <Grid Background="#151D47">
-                        <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="Indie David's Game Launcher" Margin="0,0,0,600"/>
-                        <Button Content="Go To Library" Height="50" Width="250" Click="Button_Click" Margin="0,0,0,-550"/>
-                        <WebBrowser HorizontalAlignment="Center" Height="470" Margin="0,0,0,50" VerticalAlignment="Center" Width="1020"/>
+                    <Grid Height="1300" Background="#151D47">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.RowSpan="2">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#FF871BB9" Offset="0.0"/>
+                                    <GradientStop Color="#FF324295" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+
+                        <Label Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Right" Content="PLAY" HorizontalContentAlignment="Right" Margin="0,0,50,200" Height="150" Width="300" FontSize="120">
+                            <Label.Effect>
+                                <DropShadowEffect ShadowDepth="10" Color="#FF3E3E3E"/>
+                            </Label.Effect>
+                        </Label>
+                        <Label Foreground="#FF2187" VerticalAlignment="Center" HorizontalAlignment="Right" Content="LIKE NO OTHERS" HorizontalContentAlignment="Right" Margin="0,50,50,0" Height="150" Width="1100" FontSize="120">
+                            <Label.Effect>
+                                <DropShadowEffect ShadowDepth="10" Color="#FF56007E"/>
+                            </Label.Effect>
+                        </Label>
+                        <Label Content="Scroll Down for more" FontSize="32" Opacity="0.5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,250,50,0"/>
+                        <Button Grid.Row="1" FontSize="24" Content="Go To Library" Height="50" Width="200" Click="Button_Click" Margin="0,0,0,-500" Cursor="Hand"/>
+                        <Label Grid.Row="1" FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5"/>
                     </Grid>
                 </ScrollViewer>
 
             </TabItem>
-            <TabItem Header="Library" Height="45" Width="180" FontSize="30">
+            <TabItem Header="Library" Height="45" Width="100" FontSize="20">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid Name="GameTabGrid" Background="#151D47" Height="1080">
                         <Grid.RowDefinitions>
@@ -40,7 +64,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-
+                        <Label Grid.Row="3" FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="1" Margin="181,0,186,0"/>
                     </Grid>
                 </ScrollViewer>
 
