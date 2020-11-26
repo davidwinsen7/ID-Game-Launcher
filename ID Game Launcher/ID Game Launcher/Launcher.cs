@@ -19,21 +19,8 @@ namespace ID_Game_Launcher
         private static string gameExeName;
         public static void PlayGame(string fileName)
         {
-            switch (fileName)
-            {
-                case "AgentBaby":
-                    gameFolder = "Agent Baby";
-                    gameExeName = "Agent Baby.exe";
-                    break;
-                case "SnowYard":
-                    gameFolder = "Snow-Yard";
-                    gameExeName = "Snow-Yard.exe";
-                    break;
-                case "LastLine":
-                    gameFolder = "Last Line";
-                    gameExeName = "Last Line.exe";
-                    break;
-            }
+            gameFolder = fileName;
+            gameExeName = fileName + ".exe";
 
             rootDirectory = Directory.GetCurrentDirectory();
             gameDirectory = Path.Combine(rootDirectory, "Games");
@@ -42,7 +29,6 @@ namespace ID_Game_Launcher
             if (File.Exists(gameExe))
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo(gameExe);
-                startInfo.WorkingDirectory = Path.Combine(gameDirectory, "Agent Baby");
                 Process.Start(startInfo);
             }
         }

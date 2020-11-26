@@ -16,7 +16,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Path = System.IO.Path;
 
 namespace ID_Game_Launcher
 {
@@ -25,44 +24,35 @@ namespace ID_Game_Launcher
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        private int libraryRow = 2;
+        private int libraryColumn = 4;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            GameSlot slot1 = new GameSlot();
-            slot1.GameName.Content = "Agent Baby";
-            slot1.Name = "AgentBaby";
-
-            GameSlot slot2 = new GameSlot();
-            slot2.GameName.Content = "Snow Yard";
-            slot2.Name = "SnowYard";
-
-            GameSlot slot3 = new GameSlot();
-            slot3.GameName.Content = "Last Line";
-            slot3.Name = "LastLine";
-
-            GameTabGrid.Children.Add(slot1);
-            GameTabGrid.Children.Add(slot2);
-            GameTabGrid.Children.Add(slot3);
-
-            Grid.SetColumn(slot2, 1);
-            Grid.SetColumn(slot3, 2);
-
-            slot1.GameImage.Source = new BitmapImage(new Uri("Images/agent baby logo.png", UriKind.Relative));
-            slot2.GameImage.Source = new BitmapImage(new Uri("Images/snow-yard Icon.png", UriKind.Relative));
-            slot3.GameImage.Source = new BitmapImage(new Uri("Images/Last Line icon.png", UriKind.Relative));
+            LoadGamesToLibrary();
         }
         
+        private void LoadGamesToLibrary()
+        {
+            List<GameSlot> gameSlots = new List<GameSlot>();
+            gameSlots.Add(new GameSlot("AgentBaby", "Agent Baby"));
+            gameSlots.Add(new GameSlot("SnowYard", "Snow-Yard"));
+            gameSlots.Add(new GameSlot("LastLine", "Last Line"));
+
+            for(int i = 0; i < gameSlots.Count; i++)
+            {
+                gameSlots[i].GameImage.Source = new BitmapImage(new Uri("GameImages/" + gameSlots[i].Name + ".png", UriKind.Relative));
+                GameTabGrid.Children.Add(gameSlots[i]);
+                Grid.SetColumn(gameSlots[i], i); //This need to be fixed
+            }
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("Directing to game library!");
             MenuTab.SelectedIndex = 1;
-        }
-
-        private void PlayAgentBaby_Click(object sender, RoutedEventArgs e)
-        {
-            //Launcher.PlayGame(gameExe);
         }
 
         private void MenuTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
