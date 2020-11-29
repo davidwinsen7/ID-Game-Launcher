@@ -33,13 +33,11 @@ namespace ID_Game_Launcher
             Name = _Name;
             GameName.Content = _displayName;
         }
-
         private void PanelClick(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show(this.Name + " clicked");
-            //Launcher.PlayGame(displayName);
             GamePageWindow gamePageWindow = new GamePageWindow(this);
-            gamePageWindow.Show();
+            gamePageWindow.Show();                 
         }
         private void MouseHover(object sender, RoutedEventArgs e)
         {

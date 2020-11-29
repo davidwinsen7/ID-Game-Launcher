@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Path = System.IO.Path;
 using System.IO;
+using System.Windows;
 
 namespace ID_Game_Launcher
 {   
@@ -30,6 +31,10 @@ namespace ID_Game_Launcher
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo(gameExe);
                 Process.Start(startInfo);
+            }
+            else
+            {
+                MessageBox.Show("Game file not found!");
             }
         }
     }

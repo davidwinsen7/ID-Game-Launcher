@@ -123,10 +123,10 @@
     <Resource Include="Images\Gamepad icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\White Arrow.png" />
     <Resource Include="User Controls\GameImages\AgentBaby.png" />
     <Resource Include="User Controls\GameImages\LastLine.png" />
     <Resource Include="User Controls\GameImages\SnowYard.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

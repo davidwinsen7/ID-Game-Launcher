@@ -24,8 +24,7 @@ namespace ID_Game_Launcher
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int libraryRow = 2;
-        private int libraryColumn = 4;
+        public static int numOfGames;
 
         public MainWindow()
         {
@@ -40,6 +39,8 @@ namespace ID_Game_Launcher
             gameSlots.Add(new GameSlot("AgentBaby", "Agent Baby"));
             gameSlots.Add(new GameSlot("SnowYard", "Snow-Yard"));
             gameSlots.Add(new GameSlot("LastLine", "Last Line"));
+
+            numOfGames = gameSlots.Count;
 
             for(int i = 0; i < gameSlots.Count; i++)
             {
