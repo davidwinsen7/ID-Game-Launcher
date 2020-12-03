@@ -89,6 +89,7 @@ namespace ID_Game_Launcher.CustomWindow
         private void backButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             this.Close();
+            GameSlot.gameWindowIsOpen = false;
         }
     }
 }

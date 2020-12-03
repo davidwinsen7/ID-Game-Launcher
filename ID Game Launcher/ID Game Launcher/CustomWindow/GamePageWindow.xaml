@@ -15,6 +15,6 @@
         <Label Name="displayName" Height="60" Content="Display Name Here" FontSize="42" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="390,160,0,0"/>
         <Label FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5"/>
         <Canvas Name="descriptionBox" Width="600" Height="300" Margin="290,240,0,150" Background="#FF344599" Opacity="0.5"/>
-        <TextBlock Name="gameDescription" TextWrapping="Wrap" TextAlignment="Justify" Text="adfsoiei daif sje ifjasd fiife ooa fsidiof eoi jafsdio efao ifie oalks df" Foreground="White" FontSize="24" Height="280" Width="570" Margin="290,240,0,150"/>
+        <TextBlock Name="gameDescription" TextWrapping="Wrap" TextAlignment="Justify" Text="game description here" Foreground="White" FontSize="24" Height="280" Width="570" Margin="290,240,0,150"/>
     </Grid>
 </Window>
