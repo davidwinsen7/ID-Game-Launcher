@@ -24,17 +24,24 @@ namespace ID_Game_Launcher
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static int numOfGames;
+        public static int numOfGames;//To be used in game page window
+
+        private int currentRow = 0; //currentRow for library page
+        private int maxRow; //maximum row for library page
+        private int currentColumn = 0; //current column for library page
+        private int maxColumn; //maximum column for library page
 
         public MainWindow()
         {
             InitializeComponent();
-
             LoadGamesToLibrary();
         }
         
         private void LoadGamesToLibrary()
         {
+            maxRow = GameTabGrid.RowDefinitions.Count - 1; //Get the value of maximum row in library page
+            maxColumn = GameTabGrid.ColumnDefinitions.Count - 1; //Get the value of maximum column in library page
+
             List<GameSlot> gameSlots = new List<GameSlot>();
             gameSlots.Add(new GameSlot("AgentBaby", "Agent Baby"));
             gameSlots.Add(new GameSlot("SnowYard", "Snow-Yard"));
@@ -44,16 +51,27 @@ namespace ID_Game_Launcher
 
             for(int i = 0; i < gameSlots.Count; i++)
             {
+                if (currentRow > maxRow)
+                    MessageBox.Show("Row overloaded!");
+
                 gameSlots[i].GameImage.Source = new BitmapImage(new Uri("GameImages/" + gameSlots[i].Name + ".png", UriKind.Relative));
                 GameTabGrid.Children.Add(gameSlots[i]);
-                Grid.SetColumn(gameSlots[i], i); //This need to be fixed
+
+                /*Game slots position management*/
+                if (currentColumn > maxColumn)
+                {
+                    currentColumn = 0;
+                    currentRow++;
+                }
+                Grid.SetRow(gameSlots[i], currentRow);
+                Grid.SetColumn(gameSlots[i], currentColumn);
+                currentColumn++;                
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("Directing to game library!");
-            MenuTab.SelectedIndex = 1;
+            MenuTab.SelectedIndex = 1; //Go to library page
         }
 
         private void MenuTab_SelectionChanged(object sender, SelectionChangedEventArgs e)

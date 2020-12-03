@@ -35,7 +35,7 @@ namespace ID_Game_Launcher
         }
         private void PanelClick(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show(this.Name + " clicked");
+            /*Open selected game page window*/
             GamePageWindow gamePageWindow = new GamePageWindow(this);
             gamePageWindow.Show();                 
         }
