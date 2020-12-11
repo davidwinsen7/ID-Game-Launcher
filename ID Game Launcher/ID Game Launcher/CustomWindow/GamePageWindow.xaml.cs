@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Diagnostics;
 using Path = System.IO.Path;
 using System.IO;
 using System.IO.Compression;
@@ -64,7 +53,7 @@ namespace ID_Game_Launcher.CustomWindow
                 switch (_status)
                 {
                     case LauncherStatus.ready:
-                        PlayButton.Content = "Play Game";
+                        PlayButton.Content = "Play";
                         break;
                     case LauncherStatus.failed:
                         PlayButton.Content = "Installation Error!";
@@ -116,9 +105,13 @@ namespace ID_Game_Launcher.CustomWindow
                     break;
                 case "Snow-Yard":
                     gameIndex = GameIndex.SNOW_YARD;
+                    gameURL = "https://www.dropbox.com/s/nhbevzh29judnc2/Snow-yard.zip?dl=1";
+                    gameVersionURL = "https://www.dropbox.com/s/gi54see82vd89i6/Version.txt?dl=1";
                     break;
                 case "Last Line":
                     gameIndex = GameIndex.LAST_LINE;
+                    gameURL = "https://www.dropbox.com/s/gvg5f4lnrdughsg/Last%20Line.zip?dl=1";
+                    gameVersionURL = "https://www.dropbox.com/s/8802ke17c7z64ze/Version.txt?dl=1";
                     break;
             }
             InitGameDesc();
@@ -164,7 +157,8 @@ namespace ID_Game_Launcher.CustomWindow
             try
             {
                 string onlineVersion = ((Version)e.UserState).ToString();
-                ZipFile.ExtractToDirectory(gameZipPath, libraryDirectory);
+                ZipFile.ExtractToDirectory(gameZipPath, libraryDirectory, true);
+                
                 File.Delete(gameZipPath);
 
                 File.WriteAllText(versionFile, onlineVersion);

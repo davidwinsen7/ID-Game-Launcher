@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\indie david logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Dashboard Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gamepad icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\White Arrow.png" />
+    <Resource Include="User Controls\GameImages\AgentBaby.png" />
+    <Resource Include="User Controls\GameImages\LastLine.png" />
+    <Resource Include="User Controls\GameImages\SnowYard.png" />
+  </ItemGroup>
+ 
+</Project>
