@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ID_Game_Launcher.CustomWindow"
         mc:Ignorable="d"
+        ContentRendered="Window_ContentRendered"
         Title="GamePageWindow" Height="720" Width="1080" Background="#151D47" ResizeMode="NoResize" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
     <Grid>
         <Image Name="displayImage" Width="300" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,150,0,0"/>
         <Image Name="backButton" Width="50" Height="50" Margin="50,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/ID Game Launcher;component/Images/White Arrow.png" MouseEnter="backButton_MouseEnter" MouseLeave="backButton_MouseLeave" MouseLeftButtonUp="backButton_MouseLeftButtonUp" Cursor="Hand"/>
         <Label  Height="60" Content="BACK TO LIBRARY" FontSize="42" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,47,0,0" VerticalContentAlignment="Center"/>
-        <Button Width="200" Height="50" Content="PLAY GAME" FontSize="32" Cursor="Hand" HorizontalAlignment="Left" Margin="100,300,0,0" Click="Button_Click"/>
+        <Button Name="PlayButton" Width="200" Height="50" Content="Checking..." FontSize="32" Cursor="Hand" HorizontalAlignment="Left" Margin="100,300,0,0" Click="Button_Click"/>
         <Canvas Name="titleBox" Height="70" Width="600" Background="#FF344599" VerticalAlignment="Top" Margin="290,150,0,0" Opacity="0.5"/>
         <Label Name="displayName" Height="60" Content="Display Name Here" FontSize="42" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="390,160,0,0"/>
         <Label FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5"/>

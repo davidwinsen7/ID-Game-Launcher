@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 using System.Diagnostics;
-using Path = System.IO.Path;
 using System.IO;
 using System.Windows;
 
@@ -12,30 +12,17 @@ namespace ID_Game_Launcher
 {   
     class Launcher
     {
-        private static string rootDirectory;
-        private static string gameDirectory;
-        private static string gameExe;
-
-        private static string gameFolder;
-        private static string gameExeName;
-        public static void PlayGame(string fileName)
+        public static void PlayGame(string gameFile)
         {
-            gameFolder = fileName;
-            gameExeName = fileName + ".exe";
-
-            rootDirectory = Directory.GetCurrentDirectory();
-            gameDirectory = Path.Combine(rootDirectory, "Games");
-            gameExe = Path.Combine(gameDirectory, gameFolder, gameExeName);
-
-            if (File.Exists(gameExe))
+            if (File.Exists(gameFile))
             {
-                ProcessStartInfo startInfo = new ProcessStartInfo(gameExe);
+                ProcessStartInfo startInfo = new ProcessStartInfo(gameFile);
                 Process.Start(startInfo);
             }
             else
             {
                 MessageBox.Show("Game file not found!");
             }
-        }
+        }       
     }
 }
