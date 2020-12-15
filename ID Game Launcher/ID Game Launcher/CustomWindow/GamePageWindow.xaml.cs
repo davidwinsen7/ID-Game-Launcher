@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using Path = System.IO.Path;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
@@ -24,9 +23,9 @@ namespace ID_Game_Launcher.CustomWindow
     {
         ready,
         failed,
-        downloadReady,
+        needDownload,
         downloadingGame,
-        updateReady, //Means the game needs to be updated
+        needUpdate, //Means the game needs to be updated
         downloadingUpdate
     }
 
@@ -58,13 +57,13 @@ namespace ID_Game_Launcher.CustomWindow
                     case LauncherStatus.failed:
                         PlayButton.Content = "Installation Error!";
                         break;
-                    case LauncherStatus.downloadReady:
+                    case LauncherStatus.needDownload:
                         PlayButton.Content = "Download";
                         break;
                     case LauncherStatus.downloadingGame:
                         PlayButton.Content = "Downloading...";
                         break;
-                    case LauncherStatus.updateReady:
+                    case LauncherStatus.needUpdate:
                         PlayButton.Content = "Update";
                         break;
                     case LauncherStatus.downloadingUpdate:
@@ -78,17 +77,6 @@ namespace ID_Game_Launcher.CustomWindow
 
         private string[] gameDesc = new string[MainWindow.numOfGames];
         private GameIndex gameIndex;
-
-        public void InitGameDesc()
-        {
-            gameDesc[(int)GameIndex.AGENT_BABY] = "Play as Agent Baby! a secret agent who possesses a powerful weapon that can rewind people to younger age! " +
-                                                   "Infiltrate the evil lair and make your way to the boss in this fun little 2d platformer!";
-            gameDesc[(int)GameIndex.LAST_LINE] = "The Robots are trying to take control! All efforts had been done but all we can do left is to defend. " +
-                                                   "We're at the Last Line of defense now. Join the battle to prevent Human Pride from being taken by The Robots and end this once and for all!";
-            gameDesc[(int)GameIndex.SNOW_YARD] = "Shoot as many snowman as you can within the time limit! Share and compete with your friends to see who can score the highest! " +
-                                                   "Be careful, the snowman may slide on the slippery floor!";
-        }
-
         public GamePageWindow(GameSlot gameSlot)
         {
             InitializeComponent();
@@ -102,19 +90,24 @@ namespace ID_Game_Launcher.CustomWindow
                     gameIndex = GameIndex.AGENT_BABY;
                     gameURL = "https://www.dropbox.com/s/st0enrlwwqbpnxj/Agent%20Baby.zip?dl=1";
                     gameVersionURL = "https://www.dropbox.com/s/u64mub576mpi1oi/Version.txt?dl=1";
+                    gameDesc[(int)GameIndex.AGENT_BABY] = "Play as Agent Baby! a secret agent who possesses a powerful weapon that can rewind people to younger age! " +
+                                                   "Infiltrate the evil lair and make your way to the boss in this fun little 2d platformer!";
                     break;
                 case "Snow-Yard":
                     gameIndex = GameIndex.SNOW_YARD;
                     gameURL = "https://www.dropbox.com/s/nhbevzh29judnc2/Snow-yard.zip?dl=1";
                     gameVersionURL = "https://www.dropbox.com/s/gi54see82vd89i6/Version.txt?dl=1";
+                    gameDesc[(int)GameIndex.SNOW_YARD] = "Shoot as many snowman as you can within the time limit! Share and compete with your friends to see who can score the highest! " +
+                                                   "Be careful, the snowman may slide on the slippery floor!";
                     break;
                 case "Last Line":
                     gameIndex = GameIndex.LAST_LINE;
                     gameURL = "https://www.dropbox.com/s/gvg5f4lnrdughsg/Last%20Line.zip?dl=1";
                     gameVersionURL = "https://www.dropbox.com/s/8802ke17c7z64ze/Version.txt?dl=1";
+                    gameDesc[(int)GameIndex.LAST_LINE] = "The Robots are trying to take control! All efforts had been done but all we can do left is to defend. " +
+                                                   "We're at the Last Line of defense now. Join the battle to prevent Human Pride from being taken by The Robots and end this once and for all!";
                     break;
             }
-            InitGameDesc();
             gameDescription.Text = gameDesc[(int)gameIndex];
 
            
@@ -123,6 +116,7 @@ namespace ID_Game_Launcher.CustomWindow
 
             rootDirectory = Directory.GetCurrentDirectory();
             libraryDirectory = Path.Combine(rootDirectory, "Games");
+            Directory.CreateDirectory(libraryDirectory);//Create library directory if it doesn't exist
             versionFile = Path.Combine(libraryDirectory, gameFolderName, "Version.txt");
             gameZipPath = Path.Combine(libraryDirectory, gameFolderName + ".zip");
             gameExe = Path.Combine(libraryDirectory, gameFolderName, gameExeName);
@@ -132,14 +126,14 @@ namespace ID_Game_Launcher.CustomWindow
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WebClient webClient = new WebClient();
-            if (Status == LauncherStatus.downloadReady)
+            if (Status == LauncherStatus.needDownload)
             {
                 Version onlineVersion = new Version(webClient.DownloadString(gameVersionURL));
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadGameCompletedCallback);
                 webClient.DownloadFileAsync(new Uri(gameURL), gameZipPath, onlineVersion);
                 Status = LauncherStatus.downloadingGame;
             }
-            else if(Status == LauncherStatus.updateReady)
+            else if(Status == LauncherStatus.needUpdate)
             {
                 Version onlineVersion = new Version(webClient.DownloadString(gameVersionURL));
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadGameCompletedCallback);
@@ -209,11 +203,11 @@ namespace ID_Game_Launcher.CustomWindow
             {
                 if (_isUpdate)
                 {
-                    Status = LauncherStatus.updateReady;
+                    Status = LauncherStatus.needUpdate;
                 }
                 else
                 {
-                    Status = LauncherStatus.downloadReady;                  
+                    Status = LauncherStatus.needDownload;                  
                 }
             }
             catch (Exception ex)
