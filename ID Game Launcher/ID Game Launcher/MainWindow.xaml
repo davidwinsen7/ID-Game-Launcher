@@ -6,18 +6,25 @@
         xmlns:local="clr-namespace:ID_Game_Launcher"
         x:Class="ID_Game_Launcher.MainWindow"
         mc:Ignorable="d"
-        Title="ID Game Launcher" Height="720" Width="1080" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Background="#192354" ResizeMode="NoResize" Icon="/Images/indie david logo.png">
-    <Grid>
-        <Label Content="Ver 0.0.1" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="60" Opacity="0.5"/>
-        <Label x:Name="MenuTitle" Content="ID GAME LAUNCHER" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,7,0,0" FontSize="32"/>
-        <TabControl x:Name="MenuTab" BorderBrush="Black" HorizontalAlignment="Center" Height="680" Margin="-2,6,6,6" VerticalAlignment="Center" Width="1070" Grid.ColumnSpan="2" Background="#151D47" SelectionChanged="MenuTab_SelectionChanged">
+        Title="ID Game Launcher" SizeChanged="Window_SizeChanged" Height="768" Width="1366" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Background="#192354" ResizeMode="CanResize" Icon="/Images/indie david logo.png" SizeToContent="Manual">
+    <Grid Name="myGrid">
+        <Menu Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#151D47">
+            <MenuItem Header="File" Foreground="White" Height="30" FontSize="14" HorizontalContentAlignment="Center">
+                <MenuItem Header="_Installation Settings"/>
+                <Separator/>
+                <MenuItem Header="_Exit" Click="FileExitMenu"/>
+            </MenuItem>
+        </Menu>
+        <Label Content="Ver 0.0.1" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="60" Opacity="0.5" Margin="0,2,10,0"/>
+        <Label x:Name="MenuTitle" Content="ID GAME LAUNCHER" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,35,0,0" FontSize="32"/>
+        <TabControl x:Name="MenuTab" BorderBrush="Black" HorizontalAlignment="Left" Height="720" Margin="0,31,0,0" VerticalAlignment="Top" Width="1356" Background="#151D47" SelectionChanged="MenuTab_SelectionChanged">
 
             <TabItem x:Name="Dashboard" Height="50" Width="50" FontSize="20">
                 <TabItem.Header>
                     <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,0,0,0" Source="/Images/Dashboard Icon.png"/>
                 </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <Grid Height="1300" Background="#151D47">
+                    <Grid Height="1340" Background="#151D47">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -43,8 +50,8 @@
                             </Label.Effect>
                         </Label>
                         <Label Content="Scroll Down for more" FontSize="32" Opacity="0.5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,250,50,0"/>
-                        <Button Grid.Row="1" FontSize="24" Content="Go To Library" Height="50" Width="200" Click="Button_Click" Margin="0,0,0,-500" Cursor="Hand"/>
-                        <Label Grid.Row="1" FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5"/>
+                        <Button Grid.Row="1" FontSize="24" Content="Go To Library" VerticalAlignment="Bottom" Height="50" Width="200" Click="Button_Click" Margin="0,0,0,70" Cursor="Hand"/>
+                        <Label Grid.Row="1" FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5" Margin="0,0,0,20"/>
                     </Grid>
                 </ScrollViewer>
 
@@ -54,18 +61,22 @@
                     <Image VerticalAlignment="Center" HorizontalAlignment="Center" Height="40" Width="40" Margin="0,5,0,0" Source="/Images/Gamepad icon.png"/>
                 </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <Grid x:Name="GameTabGrid" Background="#151D47" Height="622" x:FieldModifier="public">
+                    <Grid x:Name="GameTabGrid" Background="#151D47" Height="1355" x:FieldModifier="public">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="270"/>
-                            <RowDefinition Height="270"/>
+                            <RowDefinition Height="271"/>
+                            <RowDefinition Height="271"/>
+                            <RowDefinition Height="271"/>
+                            <RowDefinition Height="271"/>
+                            <RowDefinition Height="271"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="1" FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="1" Margin="183.4,0,170.6,-83.2" Width="170"/>
+                        <Label FontSize="14" Content="©2020 by David Winsen"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5" Margin="0,0,0,20"  Width="170" Grid.Column="2" Grid.Row="4"/>
                     </Grid>
                 </ScrollViewer>
             </TabItem>

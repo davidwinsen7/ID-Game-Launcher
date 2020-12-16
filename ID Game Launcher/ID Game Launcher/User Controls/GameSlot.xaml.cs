@@ -9,7 +9,6 @@ namespace ID_Game_Launcher
     /// </summary>
     public partial class GameSlot : UserControl
     {
-        public static bool gameWindowIsOpen = false;
 
         public GameSlot()
         {
@@ -25,18 +24,9 @@ namespace ID_Game_Launcher
         }
         private void PanelClick(object sender, RoutedEventArgs e)
         {
-            /*Open selected game page window*/
-            if (!gameWindowIsOpen)
-            {
-                GamePageWindow gamePageWindow = new GamePageWindow(this);
-                gamePageWindow.Show();
-                gameWindowIsOpen = true;
-            }
-            else
-            {
-                MessageBox.Show("Another game window is still being opened! Make sure it is closed first!");
-            }
-                            
+            /*Open selected game page window*/          
+            GamePageWindow gamePageWindow = new GamePageWindow(this);
+            gamePageWindow.ShowDialog(); //use showdialog to disable other window when game page window is open                     
         }
         private void MouseHover(object sender, RoutedEventArgs e)
         {

@@ -178,7 +178,7 @@ namespace ID_Game_Launcher.CustomWindow
 
                     if (onlineVersion.isDifferentThan(localVersion))
                     {
-                        InstallGameFiles(true, onlineVersion);
+                        InstallGameFiles(true);
                     }
                     else
                     {
@@ -193,11 +193,11 @@ namespace ID_Game_Launcher.CustomWindow
             }
             else
             {
-                InstallGameFiles(false, Version.zero);
+                InstallGameFiles(false);
             }
         }
 
-        private void InstallGameFiles(bool _isUpdate, Version _onlineVersion)
+        private void InstallGameFiles(bool _isUpdate)
         {
             try
             {
@@ -298,7 +298,6 @@ namespace ID_Game_Launcher.CustomWindow
         private void backButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             this.Close();
-            GameSlot.gameWindowIsOpen = false;
         }
 
     }
