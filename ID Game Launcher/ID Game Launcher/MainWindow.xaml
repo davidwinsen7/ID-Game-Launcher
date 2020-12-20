@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ID_Game_Launcher"
+        xmlns:User_Controls="clr-namespace:ID_Game_Launcher.User_Controls"
         x:Class="ID_Game_Launcher.MainWindow"
         mc:Ignorable="d"
         Title="ID Game Launcher" SizeChanged="Window_SizeChanged" Height="768" Width="1366" WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" Background="#192354" ResizeMode="CanResize" Icon="/Images/indie david logo.png" SizeToContent="Manual">
-    <Grid Name="myGrid">
+    <Grid x:Name="myGrid">
         <Menu Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#151D47">
             <MenuItem Header="File" Foreground="White" Height="30" FontSize="14" HorizontalContentAlignment="Center">
                 <MenuItem Header="_Installation Settings"/>
@@ -15,7 +16,7 @@
                 <MenuItem Header="_Exit" Click="FileExitMenu"/>
             </MenuItem>
         </Menu>
-        <Label Content="Ver 0.0.1" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="60" Opacity="0.5" Margin="0,2,10,0"/>
+        <Label Content="Early Access" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="100" Opacity="0.5" Margin="0,2,10,0"/>
         <Label x:Name="MenuTitle" Content="ID GAME LAUNCHER" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,35,0,0" FontSize="32"/>
         <TabControl x:Name="MenuTab" BorderBrush="Black" HorizontalAlignment="Left" Height="720" Margin="0,31,0,0" VerticalAlignment="Top" Width="1356" Background="#151D47" SelectionChanged="MenuTab_SelectionChanged">
 
@@ -24,13 +25,17 @@
                     <Image Width="30" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2,0,0,0" Source="/Images/Dashboard Icon.png"/>
                 </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <Grid Height="1340" Background="#151D47">
+                    <Grid Name="DashboardGrid" Height="1340" Background="#151D47">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-
-                        <Border Grid.RowSpan="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.RowSpan="2" Grid.ColumnSpan="3">
                             <Border.Background>
                                 <LinearGradientBrush>
                                     <GradientStop Color="#FF871BB9" Offset="0.0"/>
@@ -39,19 +44,20 @@
                             </Border.Background>
                         </Border>
 
-                        <Label Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Right" Content="PLAY" HorizontalContentAlignment="Right" Margin="0,0,50,200" Height="150" Width="300" FontSize="120">
+                        <Label Grid.ColumnSpan="3" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Right" Content="PLAY" HorizontalContentAlignment="Right" Margin="0,0,50,200" Height="150" Width="300" FontSize="120">
                             <Label.Effect>
                                 <DropShadowEffect ShadowDepth="10" Color="#FF3E3E3E"/>
                             </Label.Effect>
                         </Label>
-                        <Label Foreground="#FF2187" VerticalAlignment="Center" HorizontalAlignment="Right" Content="LIKE NO OTHERS" HorizontalContentAlignment="Right" Margin="0,50,50,0" Height="150" Width="1100" FontSize="120">
+                        <Label Grid.ColumnSpan="3" Foreground="#FF2187" VerticalAlignment="Center" HorizontalAlignment="Right" Content="LIKE NO OTHERS" HorizontalContentAlignment="Right" Margin="0,50,50,0" Height="150" Width="1100" FontSize="120">
                             <Label.Effect>
                                 <DropShadowEffect ShadowDepth="10" Color="#FF56007E"/>
                             </Label.Effect>
                         </Label>
-                        <Label Content="Scroll Down for more" FontSize="32" Opacity="0.5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,250,50,0"/>
-                        <Button Grid.Row="1" FontSize="24" Content="Go To Library" VerticalAlignment="Bottom" Height="50" Width="200" Click="Button_Click" Margin="0,0,0,70" Cursor="Hand"/>
-                        <Label Grid.Row="1" FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5" Margin="0,0,0,20"/>
+                        <Label Grid.ColumnSpan="3" Content="Scroll Down for more" FontSize="32" Opacity="0.5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,250,50,0"/>
+                        <Button Grid.Row="1" Grid.Column="1" Background="#FF56007E" FontSize="24" Content="Go To Library" VerticalAlignment="Bottom" Height="50" Width="170" Click="Button_Click" Margin="0,0,0,70" Cursor="Hand" BorderBrush="#FF56007E"/>
+                        <Label Grid.Row="1" Grid.Column="1" FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5" Margin="0,0,0,20"/>
+                        
                     </Grid>
                 </ScrollViewer>
 

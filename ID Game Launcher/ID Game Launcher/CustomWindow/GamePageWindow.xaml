@@ -11,7 +11,7 @@
         <Image Name="displayImage" Width="300" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,150,0,0"/>
         <Image Name="backButton" Width="50" Height="50" Margin="50,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" MouseEnter="backButton_MouseEnter" MouseLeave="backButton_MouseLeave" MouseLeftButtonUp="backButton_MouseLeftButtonUp" Cursor="Hand" Source="/Images/White Arrow.png"/>
         <Label  Height="60" Content="BACK TO LIBRARY" FontSize="42" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,47,0,0" VerticalContentAlignment="Center"/>
-        <Button Name="PlayButton" Width="290" Height="50" Content="Checking for updates..." FontSize="24" Cursor="Hand" HorizontalAlignment="Left" Margin="55,300,0,0" Click="Button_Click"/>
+        <Button Name="PlayButton"  Width="290" Height="50" Content="Checking for updates..." FontSize="24" Cursor="Hand" HorizontalAlignment="Left" Margin="55,300,0,0" Click="Button_Click"/>
         <Canvas Name="titleBox" Height="70" Width="600" Background="#FF344599" VerticalAlignment="Top" Margin="290,150,0,0" Opacity="0.5"/>
         <Label Name="displayName" Height="60" Content="Display Name Here" FontSize="42" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="390,160,0,0"/>
         <Label FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5"/>

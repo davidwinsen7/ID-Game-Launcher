@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="ID_Game_Launcher.User_Controls.PromotionalBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ID_Game_Launcher.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="400">
+    <Grid Name="promoGrid" Background="#FF344599" Height="500" Width="400" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+        <Grid.Effect>
+            <DropShadowEffect ShadowDepth="20" Opacity="0.5"/>
+        </Grid.Effect>
+        <StackPanel Name="promoPanel" Height="500" Width="400">
+            <Image Name="promoImage" Height="225" Width="400" VerticalAlignment="Top"/>
+            <Label Name="sloganText" Content="Slogan here" FontSize="24" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

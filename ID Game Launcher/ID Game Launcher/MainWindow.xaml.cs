@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace ID_Game_Launcher
@@ -23,8 +22,26 @@ namespace ID_Game_Launcher
         {
             InitializeComponent();
             LoadGamesToLibrary();
+            loadPromoBoxes();
         }
         
+        void loadPromoBoxes()
+        {
+            List<User_Controls.PromotionalBox> promoBoxes = new List<User_Controls.PromotionalBox>();
+            promoBoxes.Add(new User_Controls.PromotionalBox("DISCOVER"));
+            promoBoxes.Add(new User_Controls.PromotionalBox("NAVIGATE"));
+            promoBoxes.Add(new User_Controls.PromotionalBox("ENJOY"));
+
+            for (int i = 0; i < promoBoxes.Count; i++)
+            {
+                promoBoxes[i].promoImage.Source = new BitmapImage(new Uri("GameImages/" + "Screenshot" + (i+1) + ".png", UriKind.Relative));
+                DashboardGrid.Children.Add(promoBoxes[i]);
+                Grid.SetRow(promoBoxes[i], 1);
+                Grid.SetColumn(promoBoxes[i], i);
+                promoBoxes[i].VerticalAlignment = VerticalAlignment.Top;
+            }         
+        }
+
         private void LoadGamesToLibrary()
         {
             maxRow = GameTabGrid.RowDefinitions.Count - 1; //Get the value of maximum row in library page
