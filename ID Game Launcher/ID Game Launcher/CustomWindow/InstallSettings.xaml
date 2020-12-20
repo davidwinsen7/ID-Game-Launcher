@@ -1,0 +1,14 @@
+﻿<Window x:Class="ID_Game_Launcher.CustomWindow.InstallSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ID_Game_Launcher.CustomWindow"
+        mc:Ignorable="d"
+        Title="InstallSettings" Height="100" Width="1100" Background="#151D47" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Install location: " FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0" />
+        <TextBox Name="locationText" Width="800" Height="30" Text="Select install location" FontSize="18" VerticalAlignment="Center" Margin="20,0,0,0"/>
+        <Button Name="BrowseButton" Height="30" Width="100" Content="Browse" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,0" Click="BrowseButton_Click"/>
+    </Grid>
+</Window>

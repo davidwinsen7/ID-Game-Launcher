@@ -11,7 +11,7 @@
     <Grid x:Name="myGrid">
         <Menu Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#151D47">
             <MenuItem Header="File" Foreground="White" Height="30" FontSize="14" HorizontalContentAlignment="Center">
-                <MenuItem Header="_Installation Settings"/>
+                <MenuItem Header="_Installation Settings" Click="InstallSettingsMenu"/>
                 <Separator/>
                 <MenuItem Header="_Exit" Click="FileExitMenu"/>
             </MenuItem>

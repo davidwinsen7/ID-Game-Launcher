@@ -25,7 +25,7 @@ namespace ID_Game_Launcher
             loadPromoBoxes();
         }
         
-        void loadPromoBoxes()
+        private void loadPromoBoxes()
         {
             List<User_Controls.PromotionalBox> promoBoxes = new List<User_Controls.PromotionalBox>();
             promoBoxes.Add(new User_Controls.PromotionalBox("DISCOVER"));
@@ -96,7 +96,11 @@ namespace ID_Game_Launcher
             Application.Current.Shutdown();
         }
 
-
+        private void InstallSettingsMenu(object sender, RoutedEventArgs e)
+        {
+            CustomWindow.InstallSettings installSettings = new CustomWindow.InstallSettings();
+            installSettings.ShowDialog();
+        }
         //source code for window_sizechanged from: https://stackoverflow.com/questions/19393774/how-to-make-all-controls-resize-accordingly-proportionally-when-window-is-maximi
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -123,6 +127,6 @@ namespace ID_Game_Launcher
                     Canvas.SetLeft(fe, Canvas.GetLeft(fe) * xChange);
                 }
             }
-        }
+        }       
     }
 }

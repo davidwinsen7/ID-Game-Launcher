@@ -31,5 +31,9 @@
     <Resource Include="User Controls\GameImages\Screenshot1.png" />
     <Resource Include="User Controls\GameImages\Screenshot2.png" />
   </ItemGroup>
- 
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App.WindowsForms" />
+  </ItemGroup>
+  
 </Project>
