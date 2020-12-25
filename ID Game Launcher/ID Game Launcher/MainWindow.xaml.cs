@@ -23,6 +23,7 @@ namespace ID_Game_Launcher
             InitializeComponent();
             LoadGamesToLibrary();
             loadPromoBoxes();
+            directoryManagement.initialSetup();
         }
         
         private void loadPromoBoxes()

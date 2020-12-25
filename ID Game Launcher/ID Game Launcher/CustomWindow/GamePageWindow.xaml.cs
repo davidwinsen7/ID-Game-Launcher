@@ -115,8 +115,8 @@ namespace ID_Game_Launcher.CustomWindow
             gameExeName = Title + ".exe";
 
             rootDirectory = Directory.GetCurrentDirectory();
-            libraryDirectory = Path.Combine(rootDirectory, "Games");
-            Directory.CreateDirectory(libraryDirectory);//Create library directory if it doesn't exist
+            //libraryDirectory = Path.Combine(rootDirectory, "Games");
+            libraryDirectory = directoryManagement.currentDirectory;
             versionFile = Path.Combine(libraryDirectory, gameFolderName, "Version.txt");
             gameZipPath = Path.Combine(libraryDirectory, gameFolderName + ".zip");
             gameExe = Path.Combine(libraryDirectory, gameFolderName, gameExeName);

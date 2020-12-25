@@ -19,44 +19,21 @@ namespace ID_Game_Launcher.CustomWindow
     /// Interaction logic for InstallSettings.xaml
     /// </summary>
     public partial class InstallSettings : Window
-    {
-        public string defaultDirectory;
-        public static string currentDirectory;
-
+    { 
         public InstallSettings()
         {
             InitializeComponent();
-            initialSetup();
-        }
-
-        private void initialSetup()
-        {
-            defaultDirectory = System.IO.Path.Combine(Directory.GetCurrentDirectory(),"Games");
-            Directory.CreateDirectory(defaultDirectory);
-            if (currentDirectory != null)
-            {
-                locationText.Text = currentDirectory;
-            }              
-            else
-            {
-                currentDirectory = defaultDirectory;
-                locationText.Text = defaultDirectory;            
-            }
-                
-        }
+            locationText.Text = directoryManagement.currentDirectory;
+        }        
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
             folderBrowser.ShowDialog();
             locationText.Text = folderBrowser.SelectedPath;
-
-            if(currentDirectory != defaultDirectory)
-            {
-                //Directory.CreateDirectory(currentDirectory);
-                currentDirectory = folderBrowser.SelectedPath;
-            }
-            
+            Directory.CreateDirectory(folderBrowser.SelectedPath); //create directory just in case
+            directoryManagement.currentDirectory = folderBrowser.SelectedPath;
+            File.WriteAllText(directoryManagement.locTxt, directoryManagement.currentDirectory);
         }
     }
 }
