@@ -30,10 +30,18 @@ namespace ID_Game_Launcher.CustomWindow
         {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
             folderBrowser.ShowDialog();
-            locationText.Text = folderBrowser.SelectedPath;
-            Directory.CreateDirectory(folderBrowser.SelectedPath); //create directory just in case
-            directoryManagement.currentDirectory = folderBrowser.SelectedPath;
-            File.WriteAllText(directoryManagement.locTxt, directoryManagement.currentDirectory);
+            if(folderBrowser.SelectedPath != "")
+            {
+                locationText.Text = folderBrowser.SelectedPath;
+                Directory.CreateDirectory(folderBrowser.SelectedPath); //create directory just in case
+                directoryManagement.currentDirectory = folderBrowser.SelectedPath;
+                File.WriteAllText(directoryManagement.locTxt, directoryManagement.currentDirectory);
+            }
+            else
+            {
+                return;
+            }
+           
         }
     }
 }
