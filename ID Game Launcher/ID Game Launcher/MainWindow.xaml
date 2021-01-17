@@ -16,7 +16,7 @@
                 <MenuItem Header="_Exit" Click="FileExitMenu"/>
             </MenuItem>
         </Menu>
-        <Label Content="Early Access" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="100" Opacity="0.5" Margin="0,2,10,0"/>
+        <Label Content="Early Access" HorizontalContentAlignment="Right" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="100" Opacity="0.5" Margin="0,2,20,0"/>
         <Label x:Name="MenuTitle" Content="ID GAME LAUNCHER" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,35,0,0" FontSize="32"/>
         <TabControl x:Name="MenuTab" BorderBrush="Black" HorizontalAlignment="Left" Height="720" Margin="0,31,0,0" VerticalAlignment="Top" Width="1356" Background="#151D47" SelectionChanged="MenuTab_SelectionChanged">
 

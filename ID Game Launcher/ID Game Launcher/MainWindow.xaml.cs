@@ -102,6 +102,7 @@ namespace ID_Game_Launcher
             CustomWindow.InstallSettings installSettings = new CustomWindow.InstallSettings();
             installSettings.ShowDialog();
         }
+
         //source code for window_sizechanged from: https://stackoverflow.com/questions/19393774/how-to-make-all-controls-resize-accordingly-proportionally-when-window-is-maximi
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {

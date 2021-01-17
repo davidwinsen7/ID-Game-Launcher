@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ID_Game_Launcher.CustomWindow"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         ContentRendered="Window_ContentRendered"
         Title="GamePageWindow" Height="720" Width="1080" Background="#151D47" ResizeMode="NoResize" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
@@ -11,7 +11,7 @@
         <Image Name="displayImage" Width="300" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,150,0,0"/>
         <Image Name="backButton" Width="50" Height="50" Margin="50,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" MouseEnter="backButton_MouseEnter" MouseLeave="backButton_MouseLeave" MouseLeftButtonUp="backButton_MouseLeftButtonUp" Cursor="Hand" Source="/Images/White Arrow.png"/>
         <Label  Height="60" Content="BACK TO LIBRARY" FontSize="42" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,47,0,0" VerticalContentAlignment="Center"/>
-        <Button Name="PlayButton"  Width="290" Height="50" Content="Checking for updates..." FontSize="24" Cursor="Hand" HorizontalAlignment="Left" Margin="55,300,0,0" Click="Button_Click"/>
+        <Button Name="PlayButton"  Width="260" Height="50" Content="Checking for updates..." FontSize="22" Cursor="Hand" HorizontalAlignment="Left" Margin="55,300,0,0" Click="Button_Click"/>
         <Canvas Name="titleBox" Height="70" Width="600" Background="#FF344599" VerticalAlignment="Top" Margin="290,150,0,0" Opacity="0.5"/>
         <Label Name="displayName" Height="60" Content="Display Name Here" FontSize="42" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="390,160,0,0"/>
         <Label FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5"/>
@@ -19,5 +19,29 @@
         <TextBlock Name="gameDescription" TextWrapping="Wrap" TextAlignment="Justify" Text="game description here" Foreground="White" FontSize="24" Height="280" Width="570" Margin="290,240,0,150"/>
         <ProgressBar Name="downloadProgressBar" HorizontalAlignment="Left" Height="16" Margin="60,531,0,0" VerticalAlignment="Top" Width="280" Visibility="Hidden"/>
         <Label Name="downloadPercentage" FontSize="18" Content="0%" Margin="270,550,0,0" Height="30" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Right" Visibility="Hidden"/>
+        <Button Name ="uninstallDropdown" Height="50" Width="30" HorizontalAlignment="Left" Margin="320,300,0,0" Background="#A7C402">
+            <Button.ContextMenu>
+                <ContextMenu x:Name="MainContextMenu">
+                    <MenuItem  Header="Uninstall game" Foreground="White"></MenuItem>
+                </ContextMenu>
+            </Button.ContextMenu>
+
+            <Button.Triggers>
+                <EventTrigger SourceName="uninstallDropdown" RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MainContextMenu" Storyboard.TargetProperty="(ContextMenu.IsOpen)">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <sys:Boolean>True</sys:Boolean>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+
+        </Button>
     </Grid>
 </Window>
