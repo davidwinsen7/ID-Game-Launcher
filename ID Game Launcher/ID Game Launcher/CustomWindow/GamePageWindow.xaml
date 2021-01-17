@@ -17,5 +17,7 @@
         <Label FontSize="14" Content="©2020 by David Winsen" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.5"/>
         <Canvas Name="descriptionBox" Width="600" Height="300" Margin="290,240,0,150" Background="#FF344599" Opacity="0.5"/>
         <TextBlock Name="gameDescription" TextWrapping="Wrap" TextAlignment="Justify" Text="game description here" Foreground="White" FontSize="24" Height="280" Width="570" Margin="290,240,0,150"/>
+        <ProgressBar Name="downloadProgressBar" HorizontalAlignment="Left" Height="16" Margin="60,531,0,0" VerticalAlignment="Top" Width="280" Visibility="Hidden"/>
+        <Label Name="downloadPercentage" FontSize="18" Content="0%" Margin="270,550,0,0" Height="30" Width="70" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Right" Visibility="Hidden"/>
     </Grid>
 </Window>

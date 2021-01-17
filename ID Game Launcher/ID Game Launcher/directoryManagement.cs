@@ -21,6 +21,7 @@ namespace ID_Game_Launcher
             {
                 File.WriteAllText(locTxt, defaultDirectory);
                 currentDirectory = defaultDirectory;
+                Directory.CreateDirectory(currentDirectory); //create default directory just in case
             }
             else
             {

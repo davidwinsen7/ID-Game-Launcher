@@ -31,7 +31,7 @@ namespace ID_Game_Launcher
             List<User_Controls.PromotionalBox> promoBoxes = new List<User_Controls.PromotionalBox>();
             promoBoxes.Add(new User_Controls.PromotionalBox("DISCOVER"));
             promoBoxes.Add(new User_Controls.PromotionalBox("NAVIGATE"));
-            promoBoxes.Add(new User_Controls.PromotionalBox("ENJOY"));
+            promoBoxes.Add(new User_Controls.PromotionalBox("EXPERIENCE"));
 
             for (int i = 0; i < promoBoxes.Count; i++)
             {

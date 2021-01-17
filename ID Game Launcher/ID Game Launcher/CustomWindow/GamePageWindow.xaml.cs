@@ -115,7 +115,6 @@ namespace ID_Game_Launcher.CustomWindow
             gameExeName = Title + ".exe";
 
             rootDirectory = Directory.GetCurrentDirectory();
-            //libraryDirectory = Path.Combine(rootDirectory, "Games");
             libraryDirectory = directoryManagement.currentDirectory;
             versionFile = Path.Combine(libraryDirectory, gameFolderName, "Version.txt");
             gameZipPath = Path.Combine(libraryDirectory, gameFolderName + ".zip");
@@ -129,13 +128,15 @@ namespace ID_Game_Launcher.CustomWindow
             if (Status == LauncherStatus.needDownload)
             {
                 Version onlineVersion = new Version(webClient.DownloadString(gameVersionURL));
-                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadGameCompletedCallback);
+                webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback);
+                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadGameCompletedCallback);            
                 webClient.DownloadFileAsync(new Uri(gameURL), gameZipPath, onlineVersion);
-                Status = LauncherStatus.downloadingGame;
+                Status = LauncherStatus.downloadingGame;             
             }
             else if(Status == LauncherStatus.needUpdate)
             {
                 Version onlineVersion = new Version(webClient.DownloadString(gameVersionURL));
+                webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback);
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadGameCompletedCallback);
                 webClient.DownloadFileAsync(new Uri(gameURL), gameZipPath, onlineVersion);
                 Status = LauncherStatus.downloadingUpdate;
@@ -144,6 +145,14 @@ namespace ID_Game_Launcher.CustomWindow
             {
                 Launcher.PlayGame(gameExe);
             }
+        }
+
+        private void DownloadProgressCallback(object sender, DownloadProgressChangedEventArgs e)
+        {
+            downloadProgressBar.Visibility = Visibility.Visible;
+            downloadPercentage.Visibility = Visibility.Visible;
+            downloadProgressBar.Value = e.ProgressPercentage;
+            downloadPercentage.Content = e.ProgressPercentage + " %";
         }
 
         private void DownloadGameCompletedCallback(object sender, AsyncCompletedEventArgs e)
@@ -157,6 +166,9 @@ namespace ID_Game_Launcher.CustomWindow
 
                 File.WriteAllText(versionFile, onlineVersion);
                 Status = LauncherStatus.ready;
+
+                downloadProgressBar.Visibility = Visibility.Hidden;
+                downloadPercentage.Visibility = Visibility.Hidden;
             }
             catch (Exception ex)
             {

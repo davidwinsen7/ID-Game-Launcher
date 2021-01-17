@@ -26,6 +26,19 @@ namespace ID_Game_Launcher.User_Controls
         {
             InitializeComponent();
             sloganText.Content = _Slogan;
+
+            switch (_Slogan)
+            {
+                case "DISCOVER":
+                    promoDescText.Text = "Library of games developed by the indie game developer: Indie David!";
+                    break;
+                case "NAVIGATE":
+                    promoDescText.Text = "Throughout the launcher flawlessly with no limitations";
+                    break;
+                case "EXPERIENCE":
+                    promoDescText.Text = "True freedom of playing. Every single game in this launcher is FREE!";
+                    break;
+            }
         }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)

@@ -13,6 +13,7 @@
         <StackPanel Name="promoPanel" Height="500" Width="400">
             <Image Name="promoImage" Height="225" Width="400" VerticalAlignment="Top"/>
             <Label Name="sloganText" Content="Slogan here" FontSize="24" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Name="promoDescText" Height="230" Width="380"  Foreground="White" FontSize="20" TextAlignment="Justify" TextWrapping="Wrap"/>
         </StackPanel>
         
     </Grid>
