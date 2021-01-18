@@ -53,23 +53,26 @@ namespace ID_Game_Launcher.CustomWindow
                 {
                     case LauncherStatus.ready:
                         PlayButton.Content = "Play";
+                        uninstallDropdown.Opacity = 1f;
                         break;
                     case LauncherStatus.failed:
                         PlayButton.Content = "Installation Error!";
                         break;
                     case LauncherStatus.needDownload:
                         PlayButton.Content = "Download";
+                        uninstallDropdown.Opacity = 0.5f;
                         break;
                     case LauncherStatus.downloadingGame:
                         PlayButton.Content = "Downloading...";
                         break;
                     case LauncherStatus.needUpdate:
                         PlayButton.Content = "Update";
+                        uninstallDropdown.Opacity = 1f;
                         break;
                     case LauncherStatus.downloadingUpdate:
                         PlayButton.Content = "Updating...";
                         break;
-                    default:
+                    default:             
                         break;
                 }
             }
@@ -182,7 +185,6 @@ namespace ID_Game_Launcher.CustomWindow
             if (File.Exists(versionFile))
             {
                 Version localVersion = new Version(File.ReadAllText(versionFile));
-
                 try
                 {
                     WebClient webClient = new WebClient();
@@ -312,5 +314,41 @@ namespace ID_Game_Launcher.CustomWindow
             this.Close();
         }
 
+        private void uninstallDropdown_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if(Status == LauncherStatus.ready)
+                uninstallDropdown.Opacity = 0.5f;
+        }
+
+        private void uninstallDropdown_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if(Status == LauncherStatus.ready)
+                uninstallDropdown.Opacity = 1f;
+        }
+
+        private void uninstallDropdown_Click(object sender, RoutedEventArgs e)
+        {
+            if(Status == LauncherStatus.ready || Status == LauncherStatus.needUpdate)
+                MainContextMenu.IsOpen = true;
+        }
+
+        private void uninstallMenu(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result;
+            result = MessageBox.Show("Are you sure you want to uninstall the game?", "Uninstall Game", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if(result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Directory.Delete(Path.Combine(libraryDirectory, gameFolderName), true);
+                    MessageBox.Show("Successfully uninstalled the game!", "Uninstall Sucessful");
+                    Status = LauncherStatus.needDownload;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error uninstalling the game: {ex}");
+                }
+            }
+        }
     }
 }
