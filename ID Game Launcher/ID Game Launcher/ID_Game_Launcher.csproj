@@ -12,6 +12,11 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <ApplicationIcon>indie david icon.ico</ApplicationIcon>
+    <Version>0.1.0</Version>
+    <Copyright></Copyright>
+    <PackageIcon>indie david logo.png</PackageIcon>
+    <Authors>David Winsen</Authors>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,6 +41,13 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.WindowsDesktop.App.WindowsForms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Images\indie david logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   
 </Project>

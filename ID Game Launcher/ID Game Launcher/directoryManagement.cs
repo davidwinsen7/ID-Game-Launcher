@@ -17,6 +17,11 @@ namespace ID_Game_Launcher
         public static void initialSetup()
         {
 
+            if (!File.Exists(locTxt))
+            {
+                File.CreateText(locTxt).Close();
+            }
+
             if (File.ReadAllText(locTxt) == "")
             {
                 File.WriteAllText(locTxt, defaultDirectory);
