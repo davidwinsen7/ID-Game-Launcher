@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ID Game Launcher")]
-[assembly: AssemblyDescription("All purpose game launcher for indie games created by David Winsen")]
+[assembly: AssemblyDescription("Multi purpose game launcher for indie games created by David Winsen")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ID Game Launcher")]
