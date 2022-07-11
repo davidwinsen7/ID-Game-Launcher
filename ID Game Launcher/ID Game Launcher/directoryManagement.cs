@@ -14,7 +14,7 @@ namespace ID_Game_Launcher
         public static string defaultDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Games");
         public static string currentDirectory; 
 
-        public static void initialSetup()
+        public static void InitialSetup()
         {
 
             if (!File.Exists(locTxt))

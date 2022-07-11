@@ -16,7 +16,8 @@ namespace ID_Game_Launcher.CustomWindow
     {
         AGENT_BABY,
         SNOW_YARD,
-        LAST_LINE
+        LAST_LINE,
+        MOON_CONQUEST
     }
 
     enum LauncherStatus
@@ -25,19 +26,19 @@ namespace ID_Game_Launcher.CustomWindow
         failed,
         needDownload,
         downloadingGame,
-        needUpdate, //Means the game needs to be updated
+        needUpdate,
         downloadingUpdate
     }
 
     public partial class GamePageWindow : Window
     {
-        private string rootDirectory; //Root directory of the program
+        private string rootDirectory; 
         private string libraryDirectory; //directory of all the games
-        private string gameExe; //path of the game file
+        private string gameExePath;
         private string versionFile;
         private string gameZipPath;
-        private string gameFolderName; //Name of the game folder
-        private string gameExeName; //Name of the game file
+        private string gameFolderName;
+        private string gameExeName;
 
         private string gameURL;
         private string gameVersionURL;
@@ -72,7 +73,7 @@ namespace ID_Game_Launcher.CustomWindow
                     case LauncherStatus.downloadingUpdate:
                         PlayButton.Content = "Updating...";
                         break;
-                    default:             
+                    default:
                         break;
                 }
             }
@@ -110,6 +111,12 @@ namespace ID_Game_Launcher.CustomWindow
                     gameDesc[(int)GameIndex.LAST_LINE] = "The Robots are trying to take control! All efforts had been done but all we can do left is to defend. " +
                                                    "We're at the Last Line of defense now. Join the battle to prevent Human Pride from being taken by The Robots and end this once and for all!";
                     break;
+                case "Moon Conquest":
+                    gameIndex = GameIndex.MOON_CONQUEST;
+                    gameURL = "https://www.dropbox.com/s/qu4d4i9v2wjxd9v/Moon%20Conquest.zip?dl=1";
+                    gameVersionURL = "https://www.dropbox.com/s/xp13g7a66mtd04y/Version.txt.txt?dl=1";
+                    gameDesc[(int)GameIndex.MOON_CONQUEST] = "Play as a guy on his journey to the moon. Conquer the overweight spaceship, kick every other passengers off the ship, and go to the moon!";
+                    break;
             }
             gameDescription.Text = gameDesc[(int)gameIndex];
 
@@ -121,7 +128,7 @@ namespace ID_Game_Launcher.CustomWindow
             libraryDirectory = directoryManagement.currentDirectory;
             versionFile = Path.Combine(libraryDirectory, gameFolderName, "Version.txt");
             gameZipPath = Path.Combine(libraryDirectory, gameFolderName + ".zip");
-            gameExe = Path.Combine(libraryDirectory, gameFolderName, gameExeName);
+            gameExePath = Path.Combine(libraryDirectory, gameFolderName, gameExeName);
 
         }
 
@@ -146,7 +153,7 @@ namespace ID_Game_Launcher.CustomWindow
             }
             else if (Status == LauncherStatus.ready)
             {
-                Launcher.PlayGame(gameExe);
+                Launcher.PlayGame(gameExePath);
             }
         }
 

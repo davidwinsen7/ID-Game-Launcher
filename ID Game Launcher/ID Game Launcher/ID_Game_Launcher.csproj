@@ -32,8 +32,9 @@
     <Resource Include="Images\White Arrow.png" />
     <Resource Include="Images\Dropdown icon.png" />
     <Resource Include="User Controls\GameImages\AgentBaby.png" />
-    <Resource Include="User Controls\GameImages\LastLine.png" />
     <Resource Include="User Controls\GameImages\SnowYard.png" />
+    <Resource Include="User Controls\GameImages\LastLine.png" />
+    <Resource Include="User Controls\GameImages\MoonConquest.png" />
     <Resource Include="User Controls\GameImages\Screenshot1.png" />
     <Resource Include="User Controls\GameImages\Screenshot2.png" />
     <Resource Include="User Controls\GameImages\Screenshot3.png" />

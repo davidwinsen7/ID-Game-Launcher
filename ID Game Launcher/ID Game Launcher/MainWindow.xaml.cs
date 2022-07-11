@@ -22,11 +22,11 @@ namespace ID_Game_Launcher
         {
             InitializeComponent();
             LoadGamesToLibrary();
-            loadPromoBoxes();
-            directoryManagement.initialSetup();
+            LoadPromoBoxes();
+            directoryManagement.InitialSetup();
         }
         
-        private void loadPromoBoxes()
+        private void LoadPromoBoxes()
         {
             List<User_Controls.PromotionalBox> promoBoxes = new List<User_Controls.PromotionalBox>();
             promoBoxes.Add(new User_Controls.PromotionalBox("DISCOVER"));
@@ -52,6 +52,7 @@ namespace ID_Game_Launcher
             gameSlots.Add(new GameSlot("AgentBaby", "Agent Baby"));
             gameSlots.Add(new GameSlot("SnowYard", "Snow-Yard"));
             gameSlots.Add(new GameSlot("LastLine", "Last Line"));
+            gameSlots.Add(new GameSlot("MoonConquest", "Moon Conquest"));
             
             numOfGames = gameSlots.Count;
 
@@ -60,7 +61,7 @@ namespace ID_Game_Launcher
                 if (currentRow > maxRow)
                     MessageBox.Show("Row overloaded!");
 
-                gameSlots[i].GameImage.Source = new BitmapImage(new Uri("GameImages/" + gameSlots[i].Name + ".png", UriKind.Relative));
+               
                 GameTabGrid.Children.Add(gameSlots[i]);
 
                 /*Game slots position management*/

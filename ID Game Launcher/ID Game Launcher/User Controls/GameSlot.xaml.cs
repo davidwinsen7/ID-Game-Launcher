@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using ID_Game_Launcher.CustomWindow;
 
 namespace ID_Game_Launcher
@@ -21,6 +23,7 @@ namespace ID_Game_Launcher
             InitializeComponent();
             Name = _Name;
             GameName.Content = _displayName;
+            GameImage.Source = new BitmapImage(new Uri("GameImages/" + Name + ".png", UriKind.Relative));
         }
         private void PanelClick(object sender, RoutedEventArgs e)
         {
