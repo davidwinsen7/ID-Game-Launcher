@@ -134,7 +134,7 @@ namespace ID_Game_Launcher.CustomWindow
                 webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback);
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadGameCompletedCallback);            
                 webClient.DownloadFileAsync(new Uri(gameURL), gameZipPath, onlineVersion);
-                Status = LauncherStatus.downloadingGame;             
+                Status = LauncherStatus.downloadingGame;
             }
             else if(Status == LauncherStatus.needUpdate)
             {
